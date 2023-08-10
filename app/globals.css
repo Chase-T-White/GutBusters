@@ -3,25 +3,74 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+  /* colors */
+  --blue: #3868db;
+  --green: #6decd6;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  width: 100vw;
+  background-image: linear-gradient(to bottom right, var(--green), var(--blue));
+}
+
+img {
+  height: revert-layer;
+}
+
+.icon-color {
+  color: var(--blue);
+}
+
+.btn-primary {
+  background-image: linear-gradient(to bottom right, var(--green), var(--blue));
+}
+
+.loadingBar {
+  width: 10px;
+  height: 5rem;
+  border-radius: 50vw;
+}
+
+.searchInput:focus-within::placeholder {
+  opacity: 0;
+}
+
+@media screen and (max-width: 450px) {
+  .searchInput::placeholder {
+    opacity: 0;
+  }
+}
+
+.aside-scroll {
+  scrollbar-color: #e44a9c var(--green);
+}
+
+.green-tint {
+  background-image: linear-gradient(to bottom right, #6decd73f, #3868db3f);
+}
+
+.recipeContent-title {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 20%) skewY(-6deg);
+  font-size: 2.5rem;
+  font-weight: bold;
+  letter-spacing: 0.25rem;
+  line-height: 1.6;
+  text-align: center;
+  width: 70%;
+  z-index: 30;
+}
+
+@media screen and (max-width: 640px) {
+  .recipeContent-title {
+    font-size: 1.7rem;
+  }
+}
+
+.recipeContent-title span {
+  box-decoration-break: clone;
+  background-image: linear-gradient(to bottom right, var(--green), var(--blue));
+  padding: 0.75rem 1.5rem;
 }
